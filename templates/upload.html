@@ -1,0 +1,16 @@
+<!-- author ben lawson (balawson@bu.edu) -->
+<head>
+    <title>Upload a photo!</title>
+</head>
+    <body>
+        <div class="title">
+            <h1>Upload a photo to Photoshare</h1>
+        </div>
+            <form method="post" action="{{ url_for('upload_photo') }}">
+                <label for="photo">Select photo:</label>
+                <input type="file" name="photo" required='true' /><br />
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption" required='true' /><br />
+                <input type="submit" value="Upload" />
+            </form>
+    </body>
