@@ -163,19 +163,7 @@ def isEmailUnique(email):
 @app.route('/profile')
 @flask_login.login_required
 def protected():
-    name=getNameFromEmail(flask_login.current_user.id)
-    uid=getUserIdFromEmail(flask_login.current_user.id)
-    return render_template('hello.html', name=name, message="Here's your profile")
-
-def getNameFromEmail(email):
-    cursor = conn.cursor()
-    cursor.execute("SELECT fname FROM Users WHERE email = '{0}'".format(email))
-    return cursor.fetchone()[0]
-
-def getNameFromId(uid):
-    cursor = conn.cursor()
-    cursor.execute("SELECT fname  FROM Users WHERE user_id = '{0}'".format(uid))
-    return cursor.fetchone()[0]
+    return render_template('hello.html', name=flask_login.current_user.id, message="Here's your profile")
 
 #begin photo uploading code
 # photos uploaded using base64 encoding so they can be directly embeded in HTML 
